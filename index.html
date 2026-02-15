@@ -143,73 +143,6 @@
             font-weight: 600;
         }
         
-        .countdown-banner {
-            background-color: var(--accent-color);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .countdown-banner::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            animation: shine 3s infinite;
-        }
-        
-        @keyframes shine {
-            0% { left: -100%; }
-            20% { left: 100%; }
-            100% { left: 100%; }
-        }
-        
-        .countdown-banner h3 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .countdown {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        
-        .countdown-item {
-            background-color: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 90px;
-            transition: transform 0.3s;
-        }
-        
-        .countdown-item:hover {
-            transform: scale(1.05);
-        }
-        
-        .countdown-item span {
-            display: block;
-            font-size: 2.5rem;
-            font-weight: 700;
-            line-height: 1;
-        }
-        
-        .countdown-item p {
-            font-size: 0.9rem;
-            margin-top: 5px;
-            text-transform: uppercase;
-        }
-        
         .syllabus-section {
             padding: 60px 0;
         }
@@ -420,15 +353,6 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .countdown-section {
-            margin-top: 40px;
-        }
-        
-        .countdown-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-        
         footer {
             background-color: var(--secondary-color);
             color: white;
@@ -531,10 +455,6 @@
                 max-width: 300px;
             }
             
-            .countdown {
-                flex-wrap: wrap;
-            }
-            
             .footer-content {
                 flex-direction: column;
             }
@@ -593,29 +513,12 @@
                         <p>10 Days</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    
-    <section class="countdown-banner">
-        <div class="container">
-            <h3>Workshop Starts In:</h3>
-            <div class="countdown">
-                <div class="countdown-item">
-                    <span id="banner-days">00</span>
-                    <p>Days</p>
-                </div>
-                <div class="countdown-item">
-                    <span id="banner-hours">00</span>
-                    <p>Hours</p>
-                </div>
-                <div class="countdown-item">
-                    <span id="banner-minutes">00</span>
-                    <p>Minutes</p>
-                </div>
-                <div class="countdown-item">
-                    <span id="banner-seconds">00</span>
-                    <p>Seconds</p>
+                <div class="info-card">
+                    <i class="fas fa-hourglass-half"></i>
+                    <div>
+                        <h3>Time</h3>
+                        <p>7pm - 8pm</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -888,28 +791,6 @@
             <h2>Register for the Workshop</h2>
             <p>Join our comprehensive Data Science with Python workshop and take the first step towards becoming a data scientist. Limited seats available!</p>
             <a href="https://forms.gle/SK6fkRBqTNnQkE1V7" class="btn">Register Now</a>
-            
-            <div class="countdown-section">
-                <h3>Time Remaining to Register:</h3>
-                <div class="countdown">
-                    <div class="countdown-item">
-                        <span id="days">07</span>
-                        <p>Days</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="hours">00</span>
-                        <p>Hours</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="minutes">00</span>
-                        <p>Minutes</p>
-                    </div>
-                    <div class="countdown-item">
-                        <span id="seconds">00</span>
-                        <p>Seconds</p>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
     
@@ -963,70 +844,6 @@
             // Add active class to the clicked tab button
             event.target.closest('.tab-button').classList.add('active');
         }
-        
-        // Get today's date
-        const today = new Date();
-        
-        // Set the workshop date to exactly one week from today (July 21, 2025)
-        const workshopDate = new Date(today);
-        workshopDate.setDate(today.getDate() + 7);
-        
-        // Countdown timer function
-        function updateCountdown() {
-            // Get current date and time
-            const now = new Date().getTime();
-            
-            // Calculate the time remaining
-            const timeRemaining = workshopDate - now;
-            
-            // Calculate days, hours, minutes, and seconds
-            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-            
-            // Update the countdown displays
-            document.getElementById('days').innerText = days.toString().padStart(2, '0');
-            document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
-            
-            // Update the banner countdown
-            document.getElementById('banner-days').innerText = days.toString().padStart(2, '0');
-            document.getElementById('banner-hours').innerText = hours.toString().padStart(2, '0');
-            document.getElementById('banner-minutes').innerText = minutes.toString().padStart(2, '0');
-            document.getElementById('banner-seconds').innerText = seconds.toString().padStart(2, '0');
-        }
-        
-        // Initialize the countdown
-        updateCountdown();
-        
-        // Update the countdown every second
-        setInterval(updateCountdown, 1000);
-        
-        // Add a visual pulse effect to the countdown numbers
-        setInterval(() => {
-            const secondsElement = document.getElementById('seconds');
-            secondsElement.style.transform = 'scale(1.1)';
-            setTimeout(() => {
-                secondsElement.style.transform = 'scale(1)';
-            }, 200);
-        }, 1000);
-        
-        // Add today's date display
-        function displayTodayDate() {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            const todayString = today.toLocaleDateString('en-US', options);
-            
-            // Create a small element to show today's date
-            const dateElement = document.createElement('div');
-            dateElement.style.cssText = 'position: fixed; bottom: 10px; right: 10px; background: rgba(0,0,0,0.7); color: white; padding: 5px 10px; border-radius: 5px; font-size: 12px; z-index: 1000;';
-            dateElement.textContent = `Today: ${todayString}`;
-            document.body.appendChild(dateElement);
-        }
-        
-        // Display today's date when the page loads
-        displayTodayDate();
     </script>
 </body>
 </html>
