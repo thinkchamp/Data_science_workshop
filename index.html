@@ -3,8 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Data Science with Python Workshop - Think Champ Private Limited</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Data Science with Python Workshop - Think Champ</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -12,10 +11,10 @@
             --secondary-color: #2c3e50;
             --accent-color: #e74c3c;
             --light-bg: #f8f9fa;
-            --dark-text: #2c3e50;
-            --light-text: #ffffff;
-            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --hover-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            --dark-text: #333;
+            --light-text: #fff;
+            --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --hover-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
         
         * {
@@ -142,6 +141,73 @@
         .info-card p {
             font-size: 1.1rem;
             font-weight: 600;
+        }
+        
+        .countdown-banner {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .countdown-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            animation: shine 3s infinite;
+        }
+        
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+        
+        .countdown-banner h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .countdown-item {
+            background-color: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 90px;
+            transition: transform 0.3s;
+        }
+        
+        .countdown-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .countdown-item span {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .countdown-item p {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            text-transform: uppercase;
         }
         
         .syllabus-section {
@@ -354,30 +420,13 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
         
-        .countdown {
-            display: flex;
-            justify-content: center;
+        .countdown-section {
             margin-top: 40px;
-            gap: 20px;
         }
         
-        .countdown-item {
-            background-color: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 15px;
-            border-radius: 10px;
-            min-width: 100px;
-        }
-        
-        .countdown-item span {
-            display: block;
-            font-size: 2rem;
-            font-weight: 700;
-        }
-        
-        .countdown-item p {
-            font-size: 0.9rem;
-            margin-top: 5px;
+        .countdown-section h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
         
         footer {
@@ -520,7 +569,7 @@
                     <i class="fas fa-calendar-alt"></i>
                     <div>
                         <h3>Start Date</h3>
-                        <p>February 21, 2025</p>
+                        <p>July 21, 2025</p>
                     </div>
                 </div>
                 <div class="info-card">
@@ -547,7 +596,8 @@
             </div>
         </div>
     </section>
-      <section class="countdown-banner">
+    
+    <section class="countdown-banner">
         <div class="container">
             <h3>Workshop Starts In:</h3>
             <div class="countdown">
@@ -570,6 +620,7 @@
             </div>
         </div>
     </section>
+    
     <section class="syllabus-section">
         <div class="container">
             <div class="section-title">
@@ -805,7 +856,7 @@
                 <!-- Day 10 -->
                 <div id="day10" class="day-card">
                     <div class="day-header">
-                        <h3>Mini Project</h3>
+                        <h3>Mini Project (End-to-End Data Science)</h3>
                         <div class="day-number">10</div>
                     </div>
                     <div class="day-content">
@@ -836,24 +887,27 @@
         <div class="container">
             <h2>Register for the Workshop</h2>
             <p>Join our comprehensive Data Science with Python workshop and take the first step towards becoming a data scientist. Limited seats available!</p>
-            <a href="https://forms.gle/W2bR8s97dxNU5z6e7" class="btn">Register Now</a>
+            <a href="https://forms.gle/SK6fkRBqTNnQkE1V7" class="btn">Register Now</a>
             
-            <div class="countdown">
-                <div class="countdown-item">
-                    <span id="days">00</span>
-                    <p>Days</p>
-                </div>
-                <div class="countdown-item">
-                    <span id="hours">00</span>
-                    <p>Hours</p>
-                </div>
-                <div class="countdown-item">
-                    <span id="minutes">00</span>
-                    <p>Minutes</p>
-                </div>
-                <div class="countdown-item">
-                    <span id="seconds">00</span>
-                    <p>Seconds</p>
+            <div class="countdown-section">
+                <h3>Time Remaining to Register:</h3>
+                <div class="countdown">
+                    <div class="countdown-item">
+                        <span id="days">07</span>
+                        <p>Days</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="hours">00</span>
+                        <p>Hours</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="minutes">00</span>
+                        <p>Minutes</p>
+                    </div>
+                    <div class="countdown-item">
+                        <span id="seconds">00</span>
+                        <p>Seconds</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -883,7 +937,7 @@
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2024 Think Champ Private Limited. All Rights Reserved.</p>
+                <p>&copy; 2025 Think Champ Private Limited. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
